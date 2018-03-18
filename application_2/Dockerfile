@@ -5,7 +5,7 @@ RUN  export DEBIAN_FRONTEND=noninteractive
 ENV  DEBIAN_FRONTEND noninteractive
 RUN  dpkg-divert --local --rename --add /sbin/initctl
 
-COPY application_2/webflix.war /usr/local/tomcat/webapps
+COPY application/webflix.war /usr/local/tomcat/webapps
 #ENV APPLICATION_LINK_WAR https://github.com/UnisalPosLTT/WEBFLIX/tree/master/application_2/webflix.war
 
 #RUN mkdir -p /tmp/resources
