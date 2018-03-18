@@ -1,0 +1,39 @@
+version: '3.2'
+services:
+    postgresql_db:
+      image: jetherrodrigues/postgresql:v2
+      container_name: postgresql
+      hostname: postgresql
+      ports:
+         - "55432:5432"
+      networks: 
+        - unisal
+      tty: true  
+    
+    tomcat_web:
+      image: jetherrodrigues/my_tomcat:v2
+      container_name: tomcat
+      hostname: tomcat
+      ports:
+        - "10180:8080"
+      networks: 
+          - unisal
+      tty: true
+      depends_on:
+        - postgresql_db
+
+    # tomcat_web_app:
+    #   image: jetherrodrigues/my_app_tomcat:v1
+    #   environment:
+    #     - APPLICATION_LINK_WAR=https://github.com/aulas-unisal/docker/blob/master/application_2/example.war
+    #   container_name: tomcat_app
+    #   hostname: tomcat_app
+    #   ports:
+    #     - "15200:8080"
+    #   networks: 
+    #       - unisal
+    #   tty: true
+
+networks: 
+    unisal:
+      driver: bridge 
