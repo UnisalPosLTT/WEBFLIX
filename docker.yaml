@@ -1,7 +1,7 @@
 version: '3.2'
 services:
-    postgresql_db:
-      image: jetherrodrigues/postgresql:v2
+    postgresql:
+      image: thiagoteberga/postgresql:latest
       container_name: postgresql
       hostname: postgresql
       ports:
@@ -10,8 +10,8 @@ services:
         - unisal
       tty: true  
     
-    tomcat_web:
-      image: jetherrodrigues/my_tomcat:v2
+    tomcat:
+      image: thiagoteberga/tomcat:latest
       container_name: tomcat
       hostname: tomcat
       ports:
@@ -20,7 +20,7 @@ services:
           - unisal
       tty: true
       depends_on:
-        - postgresql_db
+        - postgresql
 
     # tomcat_web_app:
     #   image: jetherrodrigues/my_app_tomcat:v1

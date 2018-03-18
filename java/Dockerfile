@@ -1,6 +1,6 @@
 FROM  phusion/baseimage:0.9.17
 
-MAINTAINER  Jether Rodrigues <jetherrodrigues@gmail.com>
+MAINTAINER  Thiago Teberga <thiiteberga@gmail.com>
 
 RUN echo "deb http://archive.ubuntu.com/ubuntu trusty main universe" > /etc/apt/sources.list
 
