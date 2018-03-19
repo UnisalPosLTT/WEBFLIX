@@ -3,7 +3,10 @@
 #### PostgreSQL 9.3
 https://hub.docker.com/r/thiagoteberga/postgresql/
 
+
+```sh
 docker pull thiagoteberga/postgresql:latest
+```
 
 ```sh
 sudo docker build -t [your_user_on_docker_hub]/postgresql:[v1] [.]
@@ -24,7 +27,12 @@ sudo docker stats postgresql
 ```sh
 sudo docker port postgresql
 ```
-Connect to docker postgresql (user: docker, password: docker)
+
+```sh
+sudo apt install postgresql-client
+```
+Conectar ao docker postgresql (user: docker, password: docker)
+
 ```sh
 psql -h localhost -p 55432 -d docker -U docker --password
 
@@ -32,8 +40,17 @@ docker=# select datname from pg_database;
 docker=# create database docker;
 ```
 
-#### Application
+Acessar a pasta onde contem o arquivo de backup do banco de dados "backup_postgresql" e rodar:
+
+```sh
+sudo pg_restore -h localhost -p 55432 -d docker -U docker backup_postgresql
+```
+
+#### Application - TOMCAT
+
+```sh
 docker pull thiagoteberga/tomcat:latest
+```
 
 To run tomcat detach
 ```sh
