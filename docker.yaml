@@ -22,18 +22,6 @@ services:
       depends_on:
         - postgresql
 
-    # tomcat_web_app:
-    #   image: jetherrodrigues/my_app_tomcat:v1
-    #   environment:
-    #     - APPLICATION_LINK_WAR=https://github.com/aulas-unisal/docker/blob/master/application_2/example.war
-    #   container_name: tomcat_app
-    #   hostname: tomcat_app
-    #   ports:
-    #     - "15200:8080"
-    #   networks: 
-    #       - unisal
-    #   tty: true
-
 networks: 
     unisal:
       driver: bridge 
