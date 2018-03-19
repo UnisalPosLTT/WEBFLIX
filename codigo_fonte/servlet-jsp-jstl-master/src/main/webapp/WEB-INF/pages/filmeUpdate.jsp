@@ -4,7 +4,7 @@
 <c:import url="../pages/template/header.jsp" />
 
 <div class="container">
-	<h1>Filmes</h1>
+	<h1 style="color: white;">Filmes</h1>
 	<form class="form-group" action="alterarFilme" method="post">
 		<div class="form-group">
 			<div class="form-group"><input type="hidden" placeholder="nome" name="id" value="${filme.id}" class="form-control" required="required"/></div>

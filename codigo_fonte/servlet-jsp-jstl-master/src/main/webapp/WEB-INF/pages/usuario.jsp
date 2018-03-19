@@ -37,7 +37,8 @@
 				<th>Email</th>
 				<th>Login</th>
 				<th>Senha</th>
-				<th>UUID</th>
+				<th></th>
+				<th></th>
 			</tr>
 		</thead>
 		<tbody>
@@ -49,9 +50,17 @@
 					<td>${u.email}</td>
 					<td>${u.login}</td>
 					<td>${u.senha}</td>
-					<td>${u.uuid}</td>
-					<td> <button type="submit" class="btn btn-success">Edit</button></td>
-					<td> <button type="submit" class="btn btn-danger">Delete</button></td>
+						<td> <form class="form-group" action="encontrarUsuario" method="post"> 
+									<input type="hidden" name="id"   value="${u.id}"/> 
+									<button type="submit" class="btn btn-alert"><span class="glyphicon glyphicon-remove"></span> Edit</button>
+									</form>
+						</td>
+						<td> 
+									<form class="form-group" action="deletarUsuario" method="post"> 
+									<input type="hidden" name="id"   value="${u.id}"/> 
+									<button type="submit" class="btn btn-danger" onclick="return confirm('Você tem certeza que deseja excluir?')"><span class="glyphicon glyphicon-remove"></span> Delete</button>
+									</form>
+						</td>
 				</tr>
 			</c:forEach>
 		</tbody>

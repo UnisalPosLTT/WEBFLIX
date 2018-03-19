@@ -38,17 +38,15 @@ public class UsuarioDAO extends GenericDAO implements DAOInterface<Usuario> {
 	}
 
 	public void update(Usuario t) throws ClassNotFoundException, SQLException, IOException {
-		String sql = "update usuario set nome = ?, email = ?, login = ?, senha = ? from usuario";
+		String sql = "update usuario set nome = ?, email = ?, login = ?, senha = ? where id = ?";
 		PreparedStatement ps = null;
 		try {
 			ps = getConnectionPool().prepareStatement(sql);
-			ps.setLong(5, t.getId());
-
 			ps.setString(1, t.getNome());
 			ps.setString(2, t.getEmail());
 			ps.setString(3, t.getLogin());
 			ps.setString(4, t.getSenha());
-
+			ps.setLong(5, t.getId());
 			ps.execute();
 		} finally {
 			DbUtil.getInstance().closeQuietly(ps);
